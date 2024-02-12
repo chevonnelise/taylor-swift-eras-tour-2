@@ -3,60 +3,60 @@ const BASE_JSON_BIN_URL = "https://api.jsonbin.io/v3/b";
 const BIN_ID = "65ca629bdc74654018a3d305";
 const MASTER_KEY = "$2a$10$bGGtgHiNbK3z4vgOgJ28J.fxGlg8OD9LqM/yfLGJp7zF6XnFV0hoa";
 
-let songs = [];
+let todos = [];
 
-function addSong(songs, song, status){
-    let newSong = {
+function addTodo(todos, name, urgency){
+    let newTodo = {
         id: Math.floor(Math.random() * 100 + 1),
-        song: song,
+        name: name,
         status: status
     };
-    songs.push(newSong);
+    todos.push(newTodo);
 }
 
-function modifySong(songs, id, newSong, newStatus) {
-    // adding the new song
-    let modifiedSong = {
+function modifyTask(todos, id, newName, newStatus) {
+    // creating the new task
+    let modifiedTask = {
         "id": id,
-        "song": newSong,
+        "name": newName,
         "status": newStatus
     }
 
-    // insert index of the song that user wants to replace
-    const indexToReplace = songs.findIndex(function(t){
+    // insert index of the task that user wants to replace
+    const indexToReplace = todos.findIndex(function(t){
         return t.id == id;
     });
 
     // if loop to check if the findIndex can find the index, if not findIndex to return -1
     if (indexToReplace > -1) {
-        songs[indexToReplace] = modifiedSong;
+        todos[indexToReplace] = modifiedTask;
     }
 }
 
-function deleteSong(songs, id) {
+function deleteTask(todos, id) {
     let indexToDelete = null;
-    for (let i = 0; i < songs.length; i++){
-        if (songs[i].id == id){
+    for (let i = 0; i < todos.length; i++){
+        if (todos[i].id == id){
             indexToDelete = i;
             break;
         }
     }
     if (indexToDelete !== null) {
-        songs.splice(indexToDelete, 1);
+        todos.splice(indexToDelete, 1);
     } else {
         console.log("Unable to find song");
     }
 }
 
-async function loadSongs() {
+async function loadTasks() {
     const response = await axios.get(BASE_JSON_BIN_URL + "/" + BIN_ID + "/latest");
     console.log(response.data);
     return response.data.record;
 }
 
 
-async function saveSongs(songs) {
-    const response = await axios.put(`${BASE_JSON_BIN_URL}/${BIN_ID}`, songs, {
+async function saveTasks(todos) {
+    const response = await axios.put(`${BASE_JSON_BIN_URL}/${BIN_ID}`, todos, {
         headers: {
             "Content-Type": "application/json",
             "X-Master-Key": MASTER_KEY

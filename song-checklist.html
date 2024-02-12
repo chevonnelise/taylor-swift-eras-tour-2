@@ -69,7 +69,7 @@
 
                             <div id="popup">
                                 <!-- <h1 class="text-center">Song Checklist</h1> -->
-                                <!-- <button id="addTodo" class="btn btn-primary mb-3">Add Todo</button> -->
+                                <!-- <button id="addTodo" class="btn btn-primary mb-3">Add Todo</button> --> 
                                 <!-- Button trigger modal -->
                                 <button id="addSong2" type="button" class="btn btn-primary mb-3" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop">
@@ -91,29 +91,28 @@
 
                                                 <div class="mb-3">
                                                     <!-- <form id="todo-form"> -->
-                                                    <input type="text" id="songName" class="form-control"
-                                                        placeholder="Add Song">
-
+                                                    <input type="text" id="taskName" class="form-control"
+                                                        placeholder="Song Title">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <select id="songStatus" class="form-control">
+                                                    <select id="taskStatus" class="form-control">
                                                         <option value="surprise">Surprise</option>
                                                         <option value="fixed">Fixed</option>
                                                         <option value="Unplayed">Unplayed</option>
                                                     </select>
                                                 </div>
-                                                <button id="addSong" class="btn btn-primary mb-3">Add Song</button>
-                                                <ul id="songList" class="list-group">
+                                                <button id="addTodo" class="btn btn-primary mb-3">Add Song</button>
+                                                <!-- <input type="submit" id="addTodo" class="btn btn-primary mb-3" value="Add To Do"/> -->
+                                                <!-- </form> -->
+                                                <button id="save-btn" class="btn btn-success mb-3">Save</button>
+
+                                                <ul id="todoList" class="list-group">
                                                     <!-- Todo items will be appended here -->
                                                 </ul>
 
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary mt-3"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button id="save-btn" type="button"
-                                                    class="btn btn-success mt-3">Save</button>
-                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -448,10 +447,10 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-     <!-- Axios -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
-     integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
-     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+        integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Own Javascript -->
     <script src="data.js"></script>

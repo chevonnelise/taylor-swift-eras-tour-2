@@ -1,55 +1,59 @@
 document.addEventListener("DOMContentLoaded", function () {
     async function main() {
-        let songs = await loadSongs();
+        let todos = await loadTasks();
 
-        const addSongButton = document.querySelector("#addSong");
-        addSongButton.addEventListener('click', function (){
+        const addTodoButton = document.querySelector("#addTodo");
+        addTodoButton.addEventListener('click', function (){
+        // add Event listeners
+        // const form = document.querySelector("#todo-form");
+        // form.addEventListener('submit', function (event) {
+        //     event.preventDefault(); // This stops the form from being submitted the traditional way
         
         const saveButton = document.querySelector("#save-btn");
             saveButton.addEventListener("click", async function (){
-                saveSongs(songs);
+                saveTasks(todos);
             })
             
-            const songNameInput = document.querySelector("#songName");
-            const songName = songNameInput.value;
+            const taskNameInput = document.querySelector("#taskName");
+            const taskName = taskNameInput.value;
 
-            const songStatusSelect = document.querySelector("#songStatus");
-            const songStatus = songStatusSelect.value;
+            const taskStatusSelect = document.querySelector("#taskStatus");
+            const taskStatus = taskStatusSelect.value;
 
-            if (songName) {
-                addSong(songs, songName, songStatus);
-                renderSongs(songs);
-                songNameInput.value = '';
+            if (taskName) {
+                addTodo(todos, taskName, taskStatus);
+                renderTodos(todos);
+                taskNameInput.value = '';
         }
     });
     //     )
     };
 
-    function renderSongs(songs) {
-        const songList = document.querySelector('#songList');
-        songList.innerHTML = '';
-        for (let song of songs) {
+    function renderTodos(todos) {
+        const todoList = document.querySelector('#todoList');
+        todoList.innerHTML = '';
+        for (let todo of todos) {
             const li = document.createElement('li');
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
             li.innerHTML = `
-            ${song.name} <span class="badge  bg-primary">${song.status}</span>
-            <button data-task-id=${song.id} class="btn edit-btn btn-success btn-sm">Edit</button>
-            <button data-task-id=${song.id} class="btn delete-btn btn-danger btn-sm">Delete</button>
+            ${todo.name} <span class="badge  bg-primary">${todo.urgency}</span>
+            <button data-task-id=${todo.id} class="btn edit-btn btn-success btn-sm">Edit</button>
+            <button data-task-id=${todo.id} class="btn delete-btn btn-danger btn-sm">Delete</button>
             `;
-            songList.appendChild(li);
+            todoList.appendChild(li);
 
             li.querySelector(".edit-btn").addEventListener('click', function () {
-                const newSong = prompt("Enter the new song name: ", song.name);
-                const newStatus = prompt("Enter the new urgency: ", song.status);
-                modifySong(songs, song.id, newSong, newStatus);
-                renderSongs(songs);
+                const newName = prompt("Enter the new task name: ", todo.name);
+                const newUrgency = prompt("Enter the new urgency: ", todo.urgency);
+                modifyTask(todos, todo.id, newName, newUrgency);
+                renderTodos(todos);
             })
 
             li.querySelector(".delete-btn").addEventListener('click', function () {
-                const confirmation = confirm("Do you want to delete the song: " + song.name + "?");
+                const confirmation = confirm("Do you want to delete the task: " + todo.name + "?");
                 if (confirmation) {
-                    deleteSong(songs, song.id);
-                    renderSongs(songs);
+                    deleteTask(todos, todo.id);
+                    renderTodos(todos);
                 }
             });
         }
