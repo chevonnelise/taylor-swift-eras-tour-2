@@ -5,7 +5,7 @@ const MASTER_KEY = "$2a$10$bGGtgHiNbK3z4vgOgJ28J.fxGlg8OD9LqM/yfLGJp7zF6XnFV0hoa
 
 let todos = [];
 
-function addTodo(todos, name, urgency){
+function addTodo(todos, name, status){
     let newTodo = {
         id: Math.floor(Math.random() * 100 + 1),
         name: name,

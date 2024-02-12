@@ -36,16 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
             const li = document.createElement('li');
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
             li.innerHTML = `
-            ${todo.name} <span class="badge  bg-primary">${todo.urgency}</span>
+            ${todo.name} <span class="badge  bg-primary">${todo.status}</span>
             <button data-task-id=${todo.id} class="btn edit-btn btn-success btn-sm">Edit</button>
             <button data-task-id=${todo.id} class="btn delete-btn btn-danger btn-sm">Delete</button>
             `;
             todoList.appendChild(li);
 
             li.querySelector(".edit-btn").addEventListener('click', function () {
-                const newName = prompt("Enter the new task name: ", todo.name);
-                const newUrgency = prompt("Enter the new urgency: ", todo.urgency);
-                modifyTask(todos, todo.id, newName, newUrgency);
+                const newName = prompt("Enter the new song name: ", todo.name);
+                const newStatus = prompt("Enter the new status: ", todo.status);
+                modifyTask(todos, todo.id, newName, newStatus);
                 renderTodos(todos);
             })
 

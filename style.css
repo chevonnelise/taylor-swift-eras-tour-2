@@ -170,3 +170,7 @@ select {
 .navbar {
   width: 100vw;
 }
+
+.modal-body {
+    overflow-y: auto;
+}
