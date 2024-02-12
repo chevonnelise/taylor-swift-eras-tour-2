@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const li = document.createElement('li');
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
             li.innerHTML = `
-            ${todo.name} <span class="badge  bg-primary">${todo.status}</span>&nbsp
+            ${todo.name} <span class="badge  bg-warning">${todo.status}</span>&nbsp
             <span class="badge  bg-primary">${todo.album}</span>&nbsp
             <button data-task-id=${todo.id} class="btn edit-btn btn-success btn-sm">Edit</button>&nbsp
             <button data-task-id=${todo.id} class="btn delete-btn btn-danger btn-sm">Delete</button>
