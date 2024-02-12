@@ -5,21 +5,23 @@ const MASTER_KEY = "$2a$10$bGGtgHiNbK3z4vgOgJ28J.fxGlg8OD9LqM/yfLGJp7zF6XnFV0hoa
 
 let todos = [];
 
-function addTodo(todos, name, status){
+function addTodo(todos, name, status, album){
     let newTodo = {
         id: Math.floor(Math.random() * 100 + 1),
         name: name,
-        status: status
+        status: status,
+        album: album
     };
     todos.push(newTodo);
 }
 
-function modifyTask(todos, id, newName, newStatus) {
+function modifyTask(todos, id, newName, newStatus, newAlbum) {
     // creating the new task
     let modifiedTask = {
         "id": id,
         "name": newName,
-        "status": newStatus
+        "status": newStatus,
+        "album": newAlbum
     }
 
     // insert index of the task that user wants to replace

@@ -20,8 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const taskStatusSelect = document.querySelector("#taskStatus");
             const taskStatus = taskStatusSelect.value;
 
+            const taskAlbumSelect = document.querySelector("#taskAlbum");
+            const taskAlbum = taskAlbumSelect.value;
+
             if (taskName) {
-                addTodo(todos, taskName, taskStatus);
+                addTodo(todos, taskName, taskStatus, taskAlbum);
                 renderTodos(todos);
                 taskNameInput.value = '';
         }
@@ -37,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
             li.innerHTML = `
             ${todo.name} <span class="badge  bg-primary">${todo.status}</span>
+            <span class="badge  bg-primary">${todo.album}</span>
             <button data-task-id=${todo.id} class="btn edit-btn btn-success btn-sm">Edit</button>
             <button data-task-id=${todo.id} class="btn delete-btn btn-danger btn-sm">Delete</button>
             `;
@@ -45,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             li.querySelector(".edit-btn").addEventListener('click', function () {
                 const newName = prompt("Enter the new song name: ", todo.name);
                 const newStatus = prompt("Enter the new status: ", todo.status);
+                const newAlbum = prompt("Enter the new status: ", todo.album);
                 modifyTask(todos, todo.id, newName, newStatus);
                 renderTodos(todos);
             })
