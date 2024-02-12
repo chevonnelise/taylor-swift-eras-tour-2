@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const li = document.createElement('li');
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
             li.innerHTML = `
-            ${todo.name} <span class="badge  bg-primary">${todo.status}</span>
-            <span class="badge  bg-primary">${todo.album}</span>
-            <button data-task-id=${todo.id} class="btn edit-btn btn-success btn-sm">Edit</button>
+            ${todo.name} <span class="badge  bg-primary">${todo.status}</span>&nbsp
+            <span class="badge  bg-primary">${todo.album}</span>&nbsp
+            <button data-task-id=${todo.id} class="btn edit-btn btn-success btn-sm">Edit</button>&nbsp
             <button data-task-id=${todo.id} class="btn delete-btn btn-danger btn-sm">Delete</button>
             `;
             todoList.appendChild(li);
@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
             li.querySelector(".edit-btn").addEventListener('click', function () {
                 const newName = prompt("Enter the new song name: ", todo.name);
                 const newStatus = prompt("Enter the new status: ", todo.status);
-                const newAlbum = prompt("Enter the new status: ", todo.album);
-                modifyTask(todos, todo.id, newName, newStatus);
+                const newAlbum = prompt("Enter the new album: ", todo.album);
+                modifyTask(todos, todo.id, newName, newStatus, newAlbum);
                 renderTodos(todos);
             })
 
