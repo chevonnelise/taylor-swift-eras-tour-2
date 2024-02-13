@@ -128,7 +128,7 @@ a {
 .card-body {
   background-color: rgb(255, 255, 255);
   /* Changing text color to black */
-  /* overflow-y: auto; */
+  overflow-y: auto;
   max-height: 140px;
   padding: 10px;
   /* Adding padding to the card content */
@@ -174,3 +174,8 @@ select {
 .modal-body {
     overflow-y: auto;
 }
+
+li {
+  text-align: center;
+}
+
